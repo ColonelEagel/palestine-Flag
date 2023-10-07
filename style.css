@@ -1,0 +1,249 @@
+/* Global Rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Background Styles */
+html,
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(Media/AL-quds.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+}
+
+/* Text Styles */
+p {
+    position: absolute;
+    top: 7%;
+    left: 25%;
+    padding: 0 26px;
+    margin: auto;
+    overflow: hidden;
+    font-family: serif;
+    font-size: 6vw;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 5s linear infinite;
+}
+
+/* Animation for the text */
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+/* Container Styles */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Audio Player Styles */
+.aud {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Flag Styles */
+.flag {
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    opacity: 70%;
+    width: 40vw;
+    height: 22vw;
+    box-shadow: 2px 5px 14px 0px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(-22deg);
+    animation: wave 8s linear infinite;
+}
+
+/* Animation for the flag */
+@keyframes wave {
+    0% {
+        box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(22deg);
+    }
+
+    20% {
+        box-shadow: 4px 5px 15px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(0deg);
+    }
+
+    40% {
+        box-shadow: 4px 5px 20px 0 rgba(0, 0, 0, 0.4);
+        transform: translate3d(0, 0, 0) rotateZ(6deg) rotateY(-22deg);
+    }
+
+    60% {
+        box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(0deg);
+    }
+
+    80% {
+        box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.3);
+        transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(16deg);
+    }
+
+    100% {
+        box-shadow: 4px 5px 5px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 0, 0) rotateZ(5deg) rotateY(22deg);
+    }
+}
+
+/* Colors for flag sections */
+.black,
+.white,
+.green {
+    height: calc(100% / 3);
+}
+
+.white {
+    background-color: white;
+}
+
+.green {
+    background-color: green;
+}
+
+.black {
+    background-color: black;
+}
+
+/* Flag pseudo-elements */
+.flag::before {
+    content: '';
+    position: absolute;
+    border: 11vw solid;
+    border-color: transparent transparent transparent red;
+    background: none;
+    left: 0%;
+}
+
+.flag::after {
+    position: absolute;
+    content: "";
+    height: 50vw;
+    left: -5px;
+    top: -3px;
+    width: 6px;
+    border-right: 1px solid white;
+    border-radius: 3px;
+    background-color: #444;
+    box-shadow: -3px 3px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for flag flutter */
+@keyframes flutter {
+    0% {
+        background-position: -200% 0px;
+    }
+
+    30% {
+        background-position: -60% 5px;
+    }
+
+    70% {
+        background-position: 70% -5px;
+    }
+
+    100% {
+        background-position: 200% 0px;
+    }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 1200px) {
+    .flag {
+        width: 570px;
+        height: 325px;
+        left: 32%;
+        top: 28%;
+    }
+
+    .flag::before {
+        border: 166px solid;
+        top: -2px;
+        border-color: transparent transparent transparent red;
+    }
+
+    .flag::after {
+        height: 650px;
+    }
+
+    p {
+        top: 109px;
+        left: 40%;
+        font-size: 4vw;
+    }
+}
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 576px) {
+    .flag {
+        width: 200px;
+        height: 14%;
+    }
+
+    .flag::before {
+        border-width: 60px;
+    }
+
+    .flag::after {
+        height: 242px;
+    }
+}
+
+/* Customize the audio player */
+#customAudio {
+    width: 100%;
+    max-width: 300px;
+    /* Adjust the max-width as needed */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Style the audio controls */
+#customAudio::-webkit-media-controls-panel {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Customize the play/pause button */
+#customAudio::-webkit-media-controls-play-button {
+    background-color: #fff;
+    color: #333;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Style the volume slider */
+#customAudio::-webkit-media-controls-volume-slider {
+    width: 100px;
+    /* Adjust the width as needed */
+}
