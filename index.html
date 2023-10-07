@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css" />
     <!-- rendering all elements normally  -->
     <link rel="stylesheet" href="Normaliz.css" />
+    <script>
+      window.onload = function () {
+        var context = new AudioContext();
+      };
+    </script>
     <title>palestine</title>
   </head>
   <body>
@@ -20,7 +25,18 @@
       </div>
       <div class="aud">
         <audio id="customAudio" controls>
-          <source src="Media/دمي فلسطيني short.mp3" type="audio/mpeg" />
+          <!-- <source
+            src="Media/دمي فلسطيني short.mp3"
+            autoplay
+            loop
+            type="audio/mpeg"
+          /> -->
+          <source
+            src="Media/نحن أحفاد النبي.mp3"
+            autoplay
+            loop
+            type="audio/mpeg"
+          />
           Your browser does not support the audio element.
         </audio>
       </div>
